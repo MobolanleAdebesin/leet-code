@@ -36,3 +36,26 @@ function isPalindrome(x){
     return true; 
 }
 
+// Solution for isPalindrome without converting the integer to a string
+
+function isPalindromeNoString(num){
+    if(num < 0) return false;
+    let count = 0; 
+    let copyNum = num; 
+    while(copyNum >= 10){
+      copyNum = copyNum / 10;
+      count++ 
+    }
+    let p1 = 0, p2 = count; 
+    let start, end; 
+    while(p2 > p1){
+      start = Math.floor(num / (Math.pow(10, p1)) % 10)
+      end = Math.floor(num / (Math.pow(10, p2)) % 10)
+      if(start != end) return false; 
+      p1++;  
+      p2--; 
+    }
+    return true 
+  }
+
+
